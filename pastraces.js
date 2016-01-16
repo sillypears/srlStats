@@ -2,13 +2,6 @@
 
 var srlAPI = "http://api.speedrunslive.com"; 
 
-
-function get_hash_args() {
-    hashsplit = window.location.hash.substr(1).split(',');
-    if (hashsplit[0]=='') return false;
-    return hashsplit;
-}
-
 function find_games(player) {
 	var response = $.ajax({
 		type : "GET",
@@ -39,47 +32,6 @@ function gup(name){
 	if(results==null) return "default"; else return results[1];
 };
 
-function print_response(data) {
-	var race_list = [];
-	$.each(data.pastraces, function (x, object) {
-		$.each(object.results, function(y, results) {
-			var race = [];
-			if (results.player == player) {
-				race["race_time"] = results.time;
-				race["place"] = results.place;
-				race["display_time"] = "00:00";
-				if (results.time > 0) {
-					sec = Math.floor(results.time % 60);
-					if (sec < 10) {
-						sec = "0" + sec;
-					}
-					min = Math.floor(results.time / 60);
-					if (min < 10) {
-						min = "0" + Math.floor(min);
-					}
-				    race["display_time"] = min + ":" + sec;
-				}
-				race["skill"] = results.newtrueskill;
-			race_list[object.id] = race;
-
-			}
-			
-		});
-		//if (object.game.abbrev == current_game && object.statetext == "In Progress") {
-		//if (object.state == "1" || object.state == "2" || object.state == "3") {
-		//	if ((object.game.abbrev == current_game)) {
-				//race_list[object.id] = object;
-			//} else if (current_game == 'default') {
-			//} else if (object.game.abbrev == current_game) {
-			//	race_list[object.id] = object;
-			//} else {
-			//	race_list[object.id] = object;
-			//}
-	});
-console.log(race_list);	
-
-	//console.log(race_list);
-}
 function display_time(seconds){
 	if (seconds > 0) {
 		sec = Math.floor(seconds % 60);
