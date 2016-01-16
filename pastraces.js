@@ -61,7 +61,6 @@ function display_time(seconds){
 $(document).ready( function(){
 	player = gup('player');
 	game = gup('game');
-	console.log(player + " " + game);
 	var html = $("<select id='game' name='game'></select>");
 	html.append("<option value=default>Select a game</option>");
 	if (player != "default") {
@@ -78,7 +77,6 @@ $(document).ready( function(){
 	}
 	if (game != "default" && player != "default") {
 		var html = $("<div id='stuff'></div>");
-		console.log("hi from both");
 		var count = 0;
 		count = get_games(game, player, count);
 		if (count.count > 0) {
@@ -110,10 +108,10 @@ $(document).ready( function(){
 
 				}
 			}
-			html = $("<div>Completed "+ complete + " out of "+ count.count + " races with an avg time of " + display_time(Math.floor(total_time/complete)) + "</div>");
+			html = $("<table><tr><th>Stats for " + player + " in " + game + "</th></tr><tr><td>Completed "+ complete + " out of "+ count.count + " races with an avg time of " + display_time(Math.floor(total_time/complete)) + "</td></tr></table>");
 			$('#first').html(html);	
-		} else {
-			html.html("found nothing");
+		} else { 
+			html.html("found nothing for " + player);
 		}
 		
 	}
