@@ -50,12 +50,14 @@ $(document).ready( function(){
 	game = gup('game');
 	console.log(player + " " + game);
 	var html = $("<select id='game' name='game'></select>");
+	html.append("<option value=default>Select a game</option>");
 	if (player != "default") {
 		games = find_games(player);
 		$.each(games, function(x, object){
 			html.append("<option value=" +object.gameAbbrev+">"+object.gameName+"</option>");
 			
 		});
+
 		$('#player').val(player);
 		$(html).appendTo("#form");
 
@@ -72,7 +74,7 @@ $(document).ready( function(){
 			$.each(games.pastraces, function(x, races){
 				$.each(races.results, function(y, results) {
 					var race = [];
-					if (results.player == player) {
+					if (results.player.toLowerCase() == player.toLowerCase()) {
 						race["race_time"] = results.time;
 						race["place"] = results.place;
 						race["skill"] = results.newtrueskill;

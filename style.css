@@ -1,0 +1,55 @@
+html,body{
+	font-family: Arial, Helvetica;
+	font-size: .9em;
+	
+
+}
+.info{
+	font-weight: bold;
+	background-color: lightgrey;
+}
+.game{
+	color: green;
+	font-weight: normal;
+}
+.goal{
+	color: purple;
+	font-weight: bold;
+
+}
+.state{
+	color: purple;
+	font-weight: bold;
+}
+.time{
+	color: green;
+	font-weight: bold;
+}
+.racer{
+	color: black;
+	font-weight: normal;
+}
+.racerdq{
+	color: red;
+	font-weight: normal;
+}
+.racerquit{
+	color: red;
+	font-weight: normal;
+}
+.racergold {
+	color: yellow;
+	font-weight: bold;
+}
+.racersilver {
+	color: grey;
+	font-weight: bold;
+}
+.racerbronze {
+	color: brown;
+	font-weight: bold;
+}
+.racerdone {
+	color: green;
+	font-weight: normal;
+}
