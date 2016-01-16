@@ -34,15 +34,28 @@ function gup(name){
 
 function display_time(seconds){
 	if (seconds > 0) {
-		sec = Math.floor(seconds % 60);
+		var sec = Math.floor(seconds % 60);
 		if (sec < 10) {
 			sec = "0" + sec;
 		}
-		min = Math.floor(seconds / 60);
+		var min = Math.floor(seconds / 60);
 		if (min < 10) {
 			min = "0" + Math.floor(min);
 		}
-		return min + ":" + sec 
+		if (min > 60) {
+			var hour = Math.floor(min/60);
+			min = Math.floor(min%60);
+			if (min < 10) {
+				min = "0" + Math.floor(min);
+			}
+			if (hour < 10){
+				hour = "0" + Math.floor(hour);
+			}
+			return hour + ":" + min + ":" + sec
+		} else {
+			return min + ":" + sec 
+		}
+		
 	}
 }
 $(document).ready( function(){
