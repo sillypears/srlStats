@@ -108,7 +108,7 @@ $(document).ready( function(){
 
 				}
 			}
-			html = $("<table><tr><th>Stats for " + player + " in " + game + "</th></tr><tr><td>Completed "+ complete + " out of "+ count.count + " races with an avg time of " + display_time(Math.floor(total_time/complete)) + "</td></tr></table>");
+			html = $("<table><tr><th>Stats for " + player + " in " + game + "</th></tr><tr><td>Completed "+ complete + " out of "+ count.count + " (" + Math.floor((complete / count.count) * 100) + "%) races with an avg time of " + display_time(Math.floor(total_time/complete)) + "</td></tr></table>");
 			$('#first').html(html);	
 		} else { 
 			html.html("found nothing for " + player);
